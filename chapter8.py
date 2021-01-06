@@ -33,7 +33,7 @@ def stackImages(scale,imgArray):
     return ver
 
 def getContours(img):
-    contours,hierarchy = cv2.findContours(img,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_NONE)
+    contours,hierarchy = cv2.findContours(img,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_NONE )# cv2.CHAIN_APPROX_NONE it wil store all the boundary points  (RETR_EXTERNAL it's take only the eldest hierarchy level ) )
     for cnt in contours:
         area = cv2.contourArea(cnt)
         print(area)
@@ -51,6 +51,7 @@ def getContours(img):
                 aspRatio = w/float(h)
                 if aspRatio > 0.95 and aspRatio < 1.05: objectType = "Square"
                 else:objectType="Rectangle"
+            elif objectCorner>4: objectType="Circles"
             else:objectType="None"
 
             cv2.rectangle(imgContour,(x,y),(x+w,y+h),(0,255,0),2)
