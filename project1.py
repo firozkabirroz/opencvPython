@@ -5,7 +5,7 @@ cap = cv2.VideoCapture(1)
 cap.set(3,frameWidth)
 cap.set(4,frameHeight)
 cap.set(10,150)
-
+# i am a zero
 while True:
     success, img = cap.read()
     cv2.imshow("Result",img)
